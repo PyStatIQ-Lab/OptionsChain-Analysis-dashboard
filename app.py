@@ -10,7 +10,7 @@ import json
 
 # Configure page
 st.set_page_config(
-    page_title="Upstox Options Chain Dashboard",
+    page_title="PyStatIQ Options Chain Dashboard",
     page_icon="📊",
     layout="wide"
 )
@@ -64,7 +64,7 @@ HEADERS = {
     "content-type": "application/json"
 }
 
-# Fetch data from Upstox API
+# Fetch data from API
 @st.cache_data(ttl=300)  # Cache for 5 minutes
 def fetch_options_data(asset_key="NSE_INDEX|Nifty 50", expiry="03-04-2025"):
     url = f"{BASE_URL}/strategy-chains?assetKey={asset_key}&strategyChainType=PC_CHAIN&expiry={expiry}"
@@ -184,7 +184,7 @@ def generate_signals(df, selected_strike):
 
 # Main App
 def main():
-    st.markdown("<div class='header'><h1>📊 Upstox Options Chain Dashboard</h1></div>", unsafe_allow_html=True)
+    st.markdown("<div class='header'><h1>📊 PyStatIQ Options Chain Dashboard</h1></div>", unsafe_allow_html=True)
     
     # Sidebar controls
     with st.sidebar:
@@ -207,7 +207,7 @@ def main():
         
         st.markdown("---")
         st.markdown("**About**")
-        st.markdown("This dashboard provides real-time options chain analysis using Upstox API data.")
+        st.markdown("This dashboard provides real-time options chain analysis using PyStatIQ API data.")
     
     # Fetch and process data
     with st.spinner("Fetching live options data..."):
